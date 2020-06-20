@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" class="h-100">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Identicum - Demo App</title>
+		<script src="webjars/jquery/3.3.1-1/jquery.min.js"></script>
+		<script src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
+	</head>
+	<body class="h-100">
+		<div class="container h-100">
+			<div class="row h-100 justify-content-center align-items-center">
+				<a class="login" href="user">Login</a>
+			</div>
+		</div>
+		<div id="g_id_onload"
+			 th:data-client_id="${clientId}"
+			 data-login_uri="http://localhost:8080/user" >
+		</div>
+		<style>
+			body {
+				background-color: whitesmoke;
+			}
+			a.login {
+				color: #007bff;
+				text-decoration: none;
+				background-color: transparent;
+				border: 2px solid #007bff;
+				display: inline-block;
+				width: 100px;
+				height: 100px;
+				border-radius: 100%;
+				text-align: center;
+				line-height: 100px;
+				text-transform: uppercase;
+				text-decoration: none;
+			}
+
+			a.login:hover {
+				background-color: #007bff;
+				color: white;
+			}
+		</style>
+		<script src="https://accounts.google.com/gsi/client" async defer></script>
+	</body>
+</html>
