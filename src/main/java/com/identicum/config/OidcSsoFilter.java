@@ -75,8 +75,11 @@ public class OidcSsoFilter extends OncePerRequestFilter {
 		Set<GrantedAuthority> authorities = new LinkedHashSet<>();
 		authorities.add(new OidcUserAuthority(idToken, userInfo));
 
+		String usernameAttribute = clientRegistration.getProviderDetails().getUserInfoEndpoint().getUserNameAttributeName();
+		logger.debug("Username Attribute: {}", usernameAttribute);
+
 		logger.debug("Create OidcUser");
-		OidcUser oidcUser = new DefaultOidcUser(authorities, idToken, userInfo);
+		OidcUser oidcUser = new DefaultOidcUser(authorities, idToken, userInfo, usernameAttribute);
 
 		logger.debug("Create authResult");
 		OidcLoginAuthenticationToken authResult = new OidcLoginAuthenticationToken(oidcUser);

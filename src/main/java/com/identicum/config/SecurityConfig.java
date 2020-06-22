@@ -23,9 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.authorizeRequests(authorizeRequest -> authorizeRequest
 						.antMatchers("/", "/webjars/**", "/css/**", "/favicon.*", "/imgs/**").permitAll()
 						.anyRequest().authenticated())
-				.oauth2Login(oauthLogin -> oauthLogin
-						.userInfoEndpoint()
-						.oidcUserService(new OidcUserService()));
+				.oauth2Login();
 	}
 
 }
